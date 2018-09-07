@@ -1,0 +1,22 @@
+{
+  "name": "swagger",
+  "main": "server.js",
+  "description": "Node Best practice",
+  "keywords": [
+    "node.js",
+    "express.js",
+    "swagger"
+  ],
+  "author": "ricardolopez.computing@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "express": "4.15.3",
+    "mongoose": "5.2.10",
+    "swagger-ui-express": "4.0.0",
+    "method-override": "2.3.9"
+  }
+}

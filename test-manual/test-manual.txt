@@ -1,0 +1,114 @@
+
+// db.schools.update({_id:ObjectId("5b880ad6e63fb66e4f905bfc") }, {$set: { users: [ ObjectId("5b880a26f88d400011bc5739"),ObjectId("5b8817e9b4918e001256e58d")] }});
+// db.schools.update({_id:ObjectId("5b880ad6e63fb66e4f905bfc") }, {$set: { users: ObjectId("5b880a26f88d400011bc5739") }});
+
+
+// db.schools.update({_id:ObjectId("5b880ad6e63fb66e4f905bfc") }, {$set: { users: [ ObjectId("5b880a26f88d400011bc5739"),ObjectId("5b8817e9b4918e001256e58d")], dueno:ObjectId("5b880a26f88d400011bc5739"), "__v" : 0 }});
+
+// 5b882d76ce9a8000122122cc
+// db.schools.insert( {name:"test", users:[ObjectId("5b882d76ce9a8000122122cc")], dueno:ObjectId("5b882d76ce9a8000122122cc")} );
+
+/**
+ * En postman
+ * 
+  {
+    "users": [
+        "5b882d76ce9a8000122122cc"
+    ],
+    "_id": "5b8832fa1a16c500115ec844",
+    "name": "test",
+    "dueno": "5b882d76ce9a8000122122cc",
+    "__v": 0
+  }
+ */
+
+
+
+// lectura de archivos
+/**
+ * async y await en for y funciones
+ */
+const randForTen = async () => {
+  let results = [];
+  const files = await readFiles();
+
+  for (let i = 0; i < 10; i++) {
+    await setTimeout(function(){ console.log("Hello"); }, 3000);
+    results.push(Math.random());
+  }
+  return results;
+}
+
+randForTen().then((sum) => {
+  console.log("sum", sum);
+});
+
+async function write(text) {
+  return new Promise((resolve, reject) => {
+
+    fs.writeFile(FILE, text, err => {
+      if (err) reject(err);
+      else resolve();
+    });
+
+  });
+}
+
+
+const FILE = path.join(__dirname, '.', "swagger/prueba.txt");
+
+async function write(text) {
+  return new Promise((resolve, reject) => {
+    fs.writeFile(FILE, text, err => {
+      if (err) reject(err);
+      else resolve();
+    });
+  });
+}
+
+async function read() {
+  return new Promise((resolve, reject) => {
+    fs.readFile(FILE, "utf8", (err, data) => {
+      if (err) reject(err);
+      else resolve(data);
+    });
+  });
+}
+
+async function main() {
+  const originalContent = await read();
+  console.log(originalContent);
+  await write("updated file"); // no se puede const updatedContent = await
+  const updatedContent = await read();
+  console.log(updatedContent);
+}
+
+main();
+
+
+
+
+ // creacion de objectos
+ 
+
+let apple = new User({ 
+  correo: 'a2pple@gmail.com', 
+  firstName: 'Cupertino, CA 95014', 
+  lastName: '1-408-996-1010' 
+});
+
+apple.save()
+//console.log(apple)
+
+
+let iphone7 = new School({
+  name: "School 3",
+  users:[apple._id],
+  dueno: apple._id
+});
+
+iphone7.save()
+//console.log(iphone7)
+
+
+
