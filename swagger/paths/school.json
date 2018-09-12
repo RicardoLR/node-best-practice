@@ -7,9 +7,9 @@
       "description": "Create new school in system",
       "parameters": [
         {
-          "name": "school",
+          "name": "user",
           "in": "body",
-          "description": "User that we want to create",
+          "description": "School that we want to create",
           "schema": {
             "$ref": "#/definitions/School"
           }
@@ -20,7 +20,7 @@
       ],
       "responses": {
         "200": {
-          "description": "New school is created",
+          "description": "New user is created",
           "schema": {
             "$ref": "#/definitions/School"
           }
@@ -29,14 +29,14 @@
     },
     "get": {
       "tags": [
-        "School"
+        "Schools"
       ],
-      "summary": "Get all schools in system",
+      "summary": "Get all users in system",
       "responses": {
         "200": {
           "description": "OK",
           "schema": {
-            "$ref": "#/definitions/Schools"
+            "$ref": "#/definitions/School"
           }
         }
       }

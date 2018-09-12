@@ -27,6 +27,7 @@
     "application/json"
   ],
   "paths": {
+    
   },
   "definitions": {
     "User": {
@@ -51,22 +52,40 @@
         }
       }
     },
-    "Users": {
-      "type": "array",
-      "$ref": "#/definitions/User"
-    },
-    "School": {
+    "UserId": {
+      "type": "string",
       "required": [
-        "name",
         "_id"
       ],
       "properties": {
         "_id": {
           "type": "string",
           "uniqueItems": true
+        }
+      }
+    },
+    "Users": {
+      "type": "array",
+      "$ref": "#/definitions/User"
+    },
+    "School": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "example": "Ejemplo: Escuela 432"
         },
         "users": {
-          "type": "array"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserId"
+          }
         },
         "dueno": {
           "type": "string"
