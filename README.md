@@ -1,9 +1,8 @@
 
 ## Requirements
 
-* Node.js v6.11.0
-* MongoDB v3.4.6
-* Gulp v3.9.1
+* Docker
+* Docker-compose
 
 ## Usage
 
@@ -13,7 +12,7 @@
 Api documentation can be found on: `http://localhost:8081/api-docs`
 
 ## Con Docker
-# Correr    
+# Correr y tener Mongo en local
     node server.js
     http://localhost:8081
 

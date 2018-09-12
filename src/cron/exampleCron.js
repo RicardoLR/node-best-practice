@@ -4,17 +4,17 @@ const moment = require('moment');
 const CronJob = require('cron').CronJob;
 
 const {
-    newUserLaurel
+    MiController
 } = require('../controllers/user')
 
 
-exports.jobEntregarLaureles = function() {
+exports.jobExample = function() {
 
     const job = new CronJob({
         cronTime: '0 */2 * * * *', // cada 5 minutos
         onTick: function() {
             console.log("Modificando por job");
-            newUserLaurel();
+            MiController();
         },
         start: false,
         timeZone: 'America/Los_Angeles'
